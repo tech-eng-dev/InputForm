@@ -1,5 +1,6 @@
 
 
+
 # InputForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
@@ -33,8 +34,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
  `(For now deleting data is not a requirement in this assumption)`
 - Chart
 
-Y axis: Count of the friends of the person
-X axis: Name of the person with `Age`, `Weight` as there might be a person with the same `Name`
+	Y axis: Count of the friends of the person
+	X axis: Name of the person with `Age`, `Weight` as there might be a person with the same `Name`
 - Application should be mobile responsive
 
 ## Technical Requirements(Assumptions)
