@@ -35,6 +35,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - Chart
 
 	Y axis: Count of the friends of the person
+  
 	X axis: Name of the person with `Age`, `Weight` as there might be a person with the same `Name`
 - Application should be mobile responsive
 
