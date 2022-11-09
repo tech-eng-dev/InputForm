@@ -30,6 +30,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 	- `Age`: Number only(Required)
 	- `Friends`: String Array(Optional)
 - List
+
 	Show list with already added data.
 	The user should be able to select a row and the data should be filled into the input form to edit.
  `(For now deleting data is not a requirement in this assumption)`
