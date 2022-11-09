@@ -21,7 +21,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - Input form
     Form should be able to save data.
 	Form should not allow to save data with the same `Name`, `Age`, `Weight`. When there is a same person, application should show an alert with `There is a same person already!` message.
-	Form fields:
+	
+  Form fields:
 	- `Name`: String(Required)
 	- `Weight`: Number only(Required)
 	- `Age`: Number only(Required)
