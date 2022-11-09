@@ -61,9 +61,11 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
       .attr('class', 'bars')
       .attr('transform', `translate(${this.chartMargin.left}, ${this.chartMargin.top})`);
 
+    const yMax = d3.max(this.persons, person => person.friends?.length);
+
     // define X & Y domains
     let xDomain = this.persons.map(person => this.getXaxisProperty(person));
-    let yDomain = [0, d3.max(this.persons, person => person.friends?.length)];
+    let yDomain = [0, yMax];
 
     // create scales
     this.xScale = d3.scaleBand().padding(0.1).domain(xDomain).rangeRound([0, this.width]);
@@ -80,16 +82,17 @@ export class ChartComponent implements OnInit, OnChanges, AfterViewInit {
     this.yAxis = svg.append('g')
       .attr('class', 'axis axis-y')
       .attr('transform', `translate(${this.chartMargin.left}, ${this.chartMargin.top})`)
-      .call(d3.axisLeft(this.yScale).ticks(this.persons.length / 2).tickFormat(d3.format("d") as any));
+      .call(d3.axisLeft(this.yScale).ticks(yMax).tickFormat(d3.format('d') as any));
   }
 
   private updateChart() {
+    const yMax = d3.max(this.persons, person => person.friends?.length);
     // update scales & axis
     this.xScale.domain(this.persons.map(person => this.getXaxisProperty(person)));
-    this.yScale.domain([0, d3.max(this.persons, person => person.friends?.length)]);
+    this.yScale.domain([0, yMax]);
     this.colors.domain([0, this.persons.length]);
     this.xAxis.transition().call(d3.axisBottom(this.xScale));
-    this.yAxis.transition().call(d3.axisLeft(this.yScale).ticks(this.persons.length / 2).tickFormat(d3.format("d") as any));
+    this.yAxis.transition().call(d3.axisLeft(this.yScale).ticks(yMax).tickFormat(d3.format('d') as any));
 
     let update = this.chart.selectAll('.bar')
       .data(this.persons);
