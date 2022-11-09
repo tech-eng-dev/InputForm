@@ -1,3 +1,5 @@
+
+
 # InputForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
@@ -14,14 +16,30 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## UI Requirements(Assumptions)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Input form
+    Form should be able to save data.
+	Form should not allow to save data with the same `Name`, `Age`, `Weight`. When there is a same person, application should show an alert with `There is a same person already!` message.
+	Form fields:
+	- `Name`: String(Required)
+	- `Weight`: Number only(Required)
+	- `Age`: Number only(Required)
+	- `Friends`: String Array(Optional)
+- List
+	Show list with already added data.
+	The user should be able to select a row and the data should be filled into the input form to edit.
+- Chart
+Y axis: Count of the friends of the person
+X axis: Name of the person with `Age`, `Weight` as we don't allow a person who has the same `Name`, `Age`, `Weight`
+- Application should be mobile responsive
 
-## Running end-to-end tests
+## Technical Requirements(Assumptions)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Angular](https://angular.io/) latest version(v14)
+- [Angular Material](https://material.angular.io/) as UI component library
+- [Bootstrap](https://getbootstrap.com/) for customized CSS built-in
+- [D3](https://d3js.org/) for visualization
+- [NgRx](https://ngrx.io/) for state management
+- Components should be stateless
+- State should be persisted for browser session

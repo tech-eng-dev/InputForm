@@ -1,0 +1,15 @@
+:host {
+  .persons-chart {
+    width: 100%;
+    height: 200px;
+  }
+
+  .persons-chart .axis path,
+  .persons-chart .axis line {
+    stroke: #999;
+  }
+
+  .persons-chart .axis text {
+    fill: #999;
+  }
+}

@@ -1,0 +1,55 @@
+<form class="text-center" [formGroup]="formGroup">
+  <fieldset class="border border-light px-4 py-3">
+    <section class="justify-content-start d-md-flex">
+      <mat-form-field class="py-1 pe-1" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput appAutoFocus formControlName="name">
+        <mat-error *ngIf="formGroup.controls['name'].hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="p-1" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age">
+        <mat-error *ngIf="formGroup.controls['age'].hasError('required')">
+          Age is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="formGroup.controls['age'].hasError('pattern')">
+          Age should be <strong>number format</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="p-1" appearance="fill">
+        <mat-label>Weight(kg)</mat-label>
+        <input matInput formControlName="weight">
+        <mat-error *ngIf="formGroup.controls['weight'].hasError('required')">
+          Weight is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="formGroup.controls['weight'].hasError('pattern')">
+          Weight should be <strong>number format</strong>
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section class="d-flex justify-content-center">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Friends</mat-label>
+        <mat-chip-list #chipList aria-label="Friend selection">
+          <mat-chip *ngFor="let friend of _friends" (removed)="onRemoveFriend(friend)">
+            {{friend}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="New friend..."
+            formControlName="friends"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="onAddFriend($event)">
+        </mat-chip-list>
+      </mat-form-field>
+    </section>
+    <button mat-raised-button color="secondary"
+      [disabled]="formGroup.invalid"
+      (click)="onDispatchValues()">Save</button>
+  </fieldset>
+</form>

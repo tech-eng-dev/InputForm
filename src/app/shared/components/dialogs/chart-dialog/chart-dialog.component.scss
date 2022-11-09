@@ -1,0 +1,15 @@
+:host {
+  .button-close {
+    justify-self: right;
+    font-size: 20px;
+    border: none;
+    height: 30px;
+    background-color: #FFFFFF;
+    outline: none;
+    color: #000000;
+
+    &:hover {
+        cursor: pointer;
+    }
+  }
+}
