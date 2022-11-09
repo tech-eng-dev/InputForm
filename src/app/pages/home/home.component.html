@@ -4,13 +4,13 @@
       [person]="person"
       (dispatchValues)="onDispatchValues($event)"></app-input-form>
   </section>
-  <div class="w-100 d-flex justify-content-end" #chartIconContainer>
+  <div class="w-100 d-flex justify-content-end pe-3" #chartIconContainer>
     <button mat-icon-button aria-label="Open chart"
       (click)="onOpenChart()">
       <mat-icon>bar_chart</mat-icon>
     </button>
   </div>
-  <section class="p-4 w-100 overflow-auto" [style.height]="personsContainerHeight">
+  <section class="p-4 pt-0 w-100 overflow-auto" [style.height]="personsContainerHeight">
     <app-persons class="d-flex justify-content-center"
       [persons]="persons"
       [displayedColumns]="displayedColumns"
